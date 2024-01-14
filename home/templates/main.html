@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block main%}
+
+<div class="container text-center text-white h1">
+    Code With Java
+</div>
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-primary text-center" role="alert">
+    {{message}}
+</div>
+{%endfor%}
+{%endif%}
+<div class="row">
+    <!-- code editor -->
+    <div class="col-8 justify-content-center">   
+        <!-- heading -->
+        <div class="row ">
+            <div class="col">
+                <input id="java" type="text" value="Java" readonly class="rounded-3 ">
+            </div>
+        </div>
+        <!-- heading ends -->
+        <form action="" method="post">
+            {%csrf_token%}
+      <textarea type="text" class="form-control rounded-3" name="code" id="editor" placeholder="First name" aria-label="First name">
+        {%if code%}
+        {{code}}
+        {%endif%}
+    </textarea>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary col-12">Run</button>
+    </div>
+</form>
+    </div>
+    <!-- code editor ends -->
+    <!-- input output -->
+    <div class="col-4 bg-dark px-4 rounded">
+        <div class="my-3 container  h-100">
+            <label for="" class="text-white h4">Output</label>
+            <textarea type="text" class="form-control h-75" readonly aria-label="Last name">{{output}}</textarea>
+        </div>
+    </div>
+    <!-- input output ends -->
+  </div>
+{%endblock%}

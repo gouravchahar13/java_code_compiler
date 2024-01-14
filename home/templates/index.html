@@ -1,0 +1,84 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block main%}
+<!-- message zone -->
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-primary text-center" role="alert">
+    {{message}}
+</div>
+{%endfor%}
+{%endif%}
+<!-- messages end -->
+
+
+<!-- content zone -->
+<div class="content container my-3 p-5" id="background">
+<!-- heading zone -->
+<div class="title h2 text-white text-center" >Welcome  to<span class="typed-text"></span><span class="cursor"> </span></div>
+<!-- heading zone ends -->
+<div class="row my-5 justify-content-around">
+    <!-- card-1 -->
+    <div class="card my-3" style="width: 18rem;">
+        <img src="{%static 'images/Java-Logo.png'%}" class="card-img-top rounded-circle h-100" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Learn Java</h5>
+          <p class="card-text">
+            Java: Object-oriented, platform-independent language; key for web and enterprise development.</p>
+          <a href="https://opensource.com/article/19/12/java-resources" class="btn btn-primary">Resources</a>
+        </div>
+      </div>
+    <!-- card-1 end -->
+    <!-- card-2 -->
+    <div class="card mx-5 my-3" style="width: 18rem;">
+        <img src="{%static 'images/compiler.png'%}" class="card-img-top rounded-circle " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Compile Code</h5>
+          <p class="card-text">
+            compile your code now</p>
+          <a href="/code_compiler/" class="btn btn-primary">Compile</a>
+        </div>
+      </div>
+    <!-- card-2 end -->
+    <!-- card-3 -->
+    <div class="card my-3" style="width: 18rem;">
+        <img src="{%static 'images/button.png'%}" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Watch a video</h5>
+          <p class="card-text">
+            YouTube Java tutorials for beginners, covering basics to advanced concepts.</p>
+          <a href="https://www.youtube.com/@java" class="btn btn-primary ">Watch Now</a>
+        </div>
+      </div>
+    <!-- card-3 end -->
+</div>
+</div>
+<!-- content zone ends -->
+<h5 class="title  text-white text-center py-3">CONTRIBUTORS</h5>
+<div class="row justify-content-around">
+  <div class="card rounded-5 bg-transparent" style="width: 18rem;">
+    <img src="{%static 'images/button.png'%}" class="card-img-top rounded-circle" alt="...">
+      <h5 class="card-title text-white">Sarang Singh</h5>
+    </div>
+    <div class="card rounded-5 bg-transparent" style="width: 18rem;">
+      <img src="{%static 'images/gourav.jpg'%}" class="card-img-top rounded-circle" alt="...">
+        <h5 class="card-title text-center text-white">Gourav Chahar</h5>
+      </div>
+      <div class="card rounded-5 bg-transparent" style="width: 18rem;">
+        <img src="{%static 'images/button.png'%}" class="card-img-top rounded-circle" alt="...">
+          <h5 class="card-title text-white text-center">Rupesh</h5>
+        </div>
+        <div class="card rounded-5 bg-transparent" style="width: 18rem;">
+          <img src="{%static 'images/button.png'%}" class="card-img-top rounded-circle" alt="...">
+            <h5 class="card-title text-center text-white">Raghavendra</h5>
+          </div>
+  </div>
+</div>
+<!-- credit zone -->
+
+<!-- credit zone ends -->
+
+<!-- script zone -->
+<script src="{%static './typewriter.js'%}"></script>
+<!-- script zone end -->
+{%endblock%}

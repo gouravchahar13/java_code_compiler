@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{% load  crispy_forms_tags %}
+{%block main%}
+<div class="container-fluid bg-white py-5">
+ <div class=" text-center text-primary h2 py-3">
+    Welcome to the Signup Page
+</div>
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-primary text-center" role="alert">
+    {{message}}
+</div>
+{%endfor%}
+{%endif%}
+
+
+    <form action="" method="post" class="form-control container shadow card mx-5 col-12">
+        {%csrf_token%}
+        <div class="row">
+            <div class="col-6">
+                {{form.first_name|as_crispy_field}}
+            </div>
+            <div class="col-6">
+                {{form.last_name|as_crispy_field}}
+            </div>
+        </div>
+        {{form.email|as_crispy_field}}
+        {{form.username|as_crispy_field}}
+        {{form.password1|as_crispy_field}}
+        {{form.password2|as_crispy_field}}
+        {{form.captcha|as_crispy_field}}
+        <div class="my-3">
+            Have a account <a href="/login/">Login</a>
+        </div>
+        <button type="submit" class="btn btn-primary col-12">
+            Submit
+        </button>
+    </form>
+</div>
+
+{%endblock%}
