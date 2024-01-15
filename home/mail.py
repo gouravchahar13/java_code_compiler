@@ -9,7 +9,7 @@ def reg_mail(username):
     "Reg mail",
     "Here is the message.",
     settings.EMAIL_HOST_USER,
-    ["gouravchahar1111@gmail.com"],
+    [email],
     )
     
 def delete_mail(username):
@@ -19,5 +19,5 @@ def delete_mail(username):
     "del mail",
     "Here is the message.",
     settings.EMAIL_HOST_USER,
-    ["gouravchahar1111@gmail.com"],
+    [email],
     )

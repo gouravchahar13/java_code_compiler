@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e1+#mtl7i(ks!-8+ci1bu380t#5ej4ju64%m$e%!*nqa%hkk&v'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG','False')
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     'django_recaptcha',
 ]
-RECAPTCHA_PUBLIC_KEY = '6Ld0M0spAAAAAJW0k_EWoNVcuAaJWPmzyuAdV2vF'
-RECAPTCHA_PRIVATE_KEY = '6Ld0M0spAAAAALq6hFA5NuKkf8Xj_13ws5JHNTQn'
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -88,7 +89,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+database_url=os.environ.get('database_url')
+DATABASES['default']=dj_database_url.parse(database_url)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -143,6 +145,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 # Port for sending e-mail.
 EMAIL_PORT = 465
 # Optional SMTP authentication information for EMAIL_HOST.
-EMAIL_HOST_USER = 'tutorialjaat13@gmail.com'
-EMAIL_HOST_PASSWORD = 'qrhhezcqlqtfwjaz'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True

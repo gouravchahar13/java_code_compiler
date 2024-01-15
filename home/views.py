@@ -23,7 +23,7 @@ def Signup_view(request):
         if form.is_valid():
             username=form.cleaned_data['username']
             form.save()
-            # reg_mail()
+            reg_mail(username)
             messages.info(request,'account created successfully')
             return redirect('login_pg')
         else:
@@ -65,8 +65,8 @@ def log_out(request,username):
 @login_required(login_url='login_pg')
 def delete_user(request,username):
     u = User.objects.get(username = username)
+    delete_mail(username)
     u.delete()
-    # delete_mail()
     messages.info(request, "Acoount deleted successfully")
     return redirect('home')
 
